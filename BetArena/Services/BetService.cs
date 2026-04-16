@@ -2,7 +2,7 @@ namespace BetArena.Services;
 
 public class BetService : IBetService
 {
-    private static readonly List<Bet> _bets = new();
+    private readonly List<Bet> _bets = new();
 
     public bool RegisterBet(Bet bet, out string error)
     {
@@ -15,17 +15,17 @@ public class BetService : IBetService
             return false;
         }
 
-        // Validar que el userId sea v·lido
+        // Validar que el userId sea v√°lido
         if (bet.UserId <= 0)
         {
             error = "El userId debe ser mayor a 0.";
             return false;
         }
 
-        // Validar que el game no estÈ vacÌo
+        // Validar que el game no est√© vac√≠o
         if (string.IsNullOrWhiteSpace(bet.Game))
         {
-            error = "El juego no puede estar vacÌo.";
+            error = "El juego no puede estar vac√≠o.";
             return false;
         }
 

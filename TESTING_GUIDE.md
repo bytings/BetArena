@@ -24,35 +24,35 @@ dotnet test
 
 ```bash
 # Solo validaciones
-dotnet test --filter "ClassName=BetServiceValidationTests"
+dotnet test --filter "FullyQualifiedName~BetServiceValidationTests"
 
 # Solo funcionalidad
-dotnet test --filter "ClassName=BetServiceFunctionalityTests"
+dotnet test --filter "FullyQualifiedName~BetServiceFunctionalityTests"
 
 # Solo cálculos RTP
-dotnet test --filter "ClassName=StatsCalculatorRTPTests"
+dotnet test --filter "FullyQualifiedName~StatsCalculatorRTPTests"
 
 # Solo estadísticas
-dotnet test --filter "ClassName=StatsCalculatorAggregationTests"
+dotnet test --filter "FullyQualifiedName~StatsCalculatorAggregationTests"
 
 # Solo API
-dotnet test --filter "ClassName=BetsControllerIntegrationTests"
+dotnet test --filter "FullyQualifiedName~BetsControllerIntegrationTests"
 
 # Solo edge cases
-dotnet test --filter "ClassName=EdgeCaseTests"
+dotnet test --filter "FullyQualifiedName~EdgeCaseTests"
 ```
 
 ### Por Nombre de Test
 
 ```bash
 # Test específico
-dotnet test --filter "Name~VS-001"
+dotnet test --filter "DisplayName~VS-001"
 
 # Todos los tests de Stake
-dotnet test --filter "Name~Stake"
+dotnet test --filter "DisplayName~Stake"
 
 # Todos los tests de RTP
-dotnet test --filter "Name~RTP"
+dotnet test --filter "DisplayName~RTP"
 ```
 
 ---
@@ -88,7 +88,7 @@ dotnet test --logger "trx;LogFileName=results.trx"
 **Propósito**: Validar que se rechazan entradas inválidas
 
 ```bash
-dotnet test --filter "ClassName=BetServiceValidationTests"
+dotnet test --filter "FullyQualifiedName~BetServiceValidationTests"
 ```
 
 Cubre:
@@ -104,7 +104,7 @@ Cubre:
 **Propósito**: Validar almacenamiento y recuperación
 
 ```bash
-dotnet test --filter "ClassName=BetServiceFunctionalityTests"
+dotnet test --filter "FullyQualifiedName~BetServiceFunctionalityTests"
 ```
 
 Cubre:
@@ -119,7 +119,7 @@ Cubre:
 **Propósito**: Validar cálculo del Return To Player
 
 ```bash
-dotnet test --filter "ClassName=StatsCalculatorRTPTests"
+dotnet test --filter "FullyQualifiedName~StatsCalculatorRTPTests"
 ```
 
 Cubre:
@@ -136,7 +136,7 @@ Cubre:
 **Propósito**: Validar agrupación y agregación
 
 ```bash
-dotnet test --filter "ClassName=StatsCalculatorAggregationTests"
+dotnet test --filter "FullyQualifiedName~StatsCalculatorAggregationTests"
 ```
 
 Cubre:
@@ -152,7 +152,7 @@ Cubre:
 **Propósito**: Validar endpoints REST
 
 ```bash
-dotnet test --filter "ClassName=BetsControllerIntegrationTests"
+dotnet test --filter "FullyQualifiedName~BetsControllerIntegrationTests"
 ```
 
 Cubre:
@@ -166,7 +166,7 @@ Cubre:
 **Propósito**: Validar casos extremos
 
 ```bash
-dotnet test --filter "ClassName=EdgeCaseTests"
+dotnet test --filter "FullyQualifiedName~EdgeCaseTests"
 ```
 
 Cubre:
@@ -201,7 +201,7 @@ Actual:   true
 ### Ejecutar un Test Específico en Debug
 
 ```bash
-dotnet test --filter "Name~VS-001" --logger "console;verbosity=detailed"
+dotnet test --filter "DisplayName~VS-001" --logger "console;verbosity=detailed"
 ```
 
 ### Filtrar por DisplayName
@@ -242,12 +242,12 @@ dotnet test
 
 ### Verificar Solo Validaciones
 ```bash
-dotnet test --filter "ClassName=BetServiceValidationTests"
+dotnet test --filter "FullyQualifiedName~BetServiceValidationTests"
 ```
 
 ### Verificar Solo API
 ```bash
-dotnet test --filter "ClassName=BetsControllerIntegrationTests"
+dotnet test --filter "FullyQualifiedName~BetsControllerIntegrationTests"
 ```
 
 ### Verificar Cálculos
@@ -257,7 +257,7 @@ dotnet test --filter "ClassName~Calculator"
 
 ### Verificar Casos Específicos
 ```bash
-dotnet test --filter "Name~RTP OR Name~Edge"
+dotnet test --filter "DisplayName~RTP|Name~Edge"
 ```
 
 ---

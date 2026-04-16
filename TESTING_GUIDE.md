@@ -20,39 +20,17 @@ dotnet test
 
 ## 2. Ejecutar Tests Específicos
 
-### Por Clase de Test
-
-```bash
-# Solo validaciones
-dotnet test --filter "ClassName=BetServiceValidationTests"
-
-# Solo funcionalidad
-dotnet test --filter "ClassName=BetServiceFunctionalityTests"
-
-# Solo cálculos RTP
-dotnet test --filter "ClassName=StatsCalculatorRTPTests"
-
-# Solo estadísticas
-dotnet test --filter "ClassName=StatsCalculatorAggregationTests"
-
-# Solo API
-dotnet test --filter "ClassName=BetsControllerIntegrationTests"
-
-# Solo edge cases
-dotnet test --filter "ClassName=EdgeCaseTests"
-```
-
 ### Por Nombre de Test
 
 ```bash
 # Test específico
-dotnet test --filter "Name~VS-001"
+dotnet test --filter "DisplayName~VS-001"
 
 # Todos los tests de Stake
-dotnet test --filter "Name~Stake"
+dotnet test --filter "DisplayName~Stake"
 
 # Todos los tests de RTP
-dotnet test --filter "Name~RTP"
+dotnet test --filter "DisplayName~RTP"
 ```
 
 ---
